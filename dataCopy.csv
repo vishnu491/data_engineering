@@ -1,0 +1,8 @@
+Customer_ID,Name,Age,SSN,Occupation,Credit_Score
+CUS_0x3187,vishnu,39,024-52-4439,Architect,Poor
+CUS_0x3fbf,Rick Rothackerj,28,004-07-5839,Teacher,Standard
+CUS_0xb288,Nicolacir,43,390-44-4596,Journalist,Standard
+CUS_0x7a22,Sabam,49,478-48-4669,Developer,Standard
+CUS_0x7a29,vishnu,31,123-5677-5,Data Engineer,Good
+CUS_0xb2101,Mike,51,123-5677-51,Mech,Standard
+CUS_0x7a220,Tyson,52,123-5677-51,Mech,Poor
