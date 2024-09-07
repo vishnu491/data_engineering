@@ -1,0 +1,45 @@
+@startuml
+!define RECTANGLE class
+!define COLOR1 #ADD8E6
+!define COLOR2 #90EE90
+!define COLOR3 #FFFFE0
+!define COLOR4 #FFA07A
+!define COLOR5 #D8BFD8
+!define COLOR6 #F08080
+
+RECTANGLE Fetch_Latest_Data_from_DB {
+  :Fetch Latest Data from DB;
+  :Using denormalized queries and Spark for parallel processing.;
+}
+Fetch_Latest_Data_from_DB -down-> Upload_Data_to_Cloud
+
+RECTANGLE Upload_Data_to_Cloud {
+  :Upload Data to Cloud;
+  :Migrate the latest data to the cloud for further processing.;
+}
+Upload_Data_to_Cloud -down-> Delta_Lake_Versioning
+
+RECTANGLE Delta_Lake_Versioning {
+  :Delta Lake Versioning;
+  :Use Delta Lake for versioning and identifying the latest deals.;
+}
+Delta_Lake_Versioning -down-> Run_Pipeline_on_Change_Data
+
+RECTANGLE Run_Pipeline_on_Change_Data {
+  :Run Pipeline on Change Data;
+  :Automatically trigger the pipeline on new or updated data from the CDF.;
+}
+Run_Pipeline_on_Change_Data -down-> Fetch_Table_Data
+
+RECTANGLE Fetch_Table_Data {
+  :Fetch Table Data;
+  :Based on the latest data, fetch the table data from the DB.;
+}
+Fetch_Table_Data -down-> Data_Output
+
+RECTANGLE Data_Output {
+  :Data Output;
+  :Generate output files (e.g., Parquet) after processing and upload back to the cloud.;
+}
+
+@enduml
